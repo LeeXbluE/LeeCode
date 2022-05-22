@@ -31,7 +31,7 @@ public class BM05_MergeKLists {
     }
 
     public ListNode mergeKLists3(ArrayList<ListNode> lists) {
-
+        return null;
     }
 
 }

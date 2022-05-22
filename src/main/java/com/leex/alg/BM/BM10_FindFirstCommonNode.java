@@ -10,11 +10,11 @@ import com.leex.alg.ListNode;
  */
 public class BM10_FindFirstCommonNode {
 
-    /*
-    1. 快慢指针
-    2.
+    /*  easy
+    1. 两链表相加
+    2. hash
      */
     public static ListNode findFirstCommonNode(){
-
+        return null;
     }
 }

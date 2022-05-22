@@ -1,5 +1,6 @@
 package com.leex.alg.JZ;
 
+import com.leex.alg.ListNode;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -15,7 +16,7 @@ public class JZ25_merge {
         /*
         法一：利用迭代。
          */
-        public ListNode Merge(ListNode list1,ListNode list2) {
+        public ListNode Merge(ListNode list1, ListNode list2) {
             ListNode head = null;
             ListNode tail = null;
             if(list1==null)

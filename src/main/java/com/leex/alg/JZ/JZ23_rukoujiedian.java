@@ -1,5 +1,6 @@
 package com.leex.alg.JZ;
 
+import com.leex.alg.ListNode;
 import org.junit.Test;
 
 import java.util.HashSet;

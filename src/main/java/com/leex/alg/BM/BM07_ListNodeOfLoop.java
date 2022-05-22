@@ -11,9 +11,14 @@ import com.leex.alg.ListNode;
 public class BM07_ListNodeOfLoop {
 
     /*
-    1.
+    1. 使用哈希表
+    2. 快慢指针，快慢指针
      */
-    public static ListNode listNodeOfLoop(){
+    public static ListNode listNodeOfLoop1(){
+        return null;
+    }
 
+    public static ListNode listNodeOfLoop2(){
+        return null;
     }
 }
