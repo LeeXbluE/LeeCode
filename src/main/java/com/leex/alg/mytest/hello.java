@@ -6,5 +6,8 @@ package com.leex.alg.mytest;
  * @description
  */
 public class hello {
-
+    public static void main(String[] args) {
+        ///test2
+        //test3333
+    }
 }
