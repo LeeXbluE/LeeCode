@@ -1,6 +1,7 @@
 package com.leex.alg.JZ;
 
 import com.leex.alg.ListNode;
+import com.leex.alg.util.ListUtil;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -13,6 +14,31 @@ import java.util.ArrayList;
  */
 public class JZ06_tail2head_print {
     //JZ6
+
+    public int[] reversePrint(ListNode head) {
+        int length = getSize(head);
+        int flag = 1;
+
+        int[] res = new int[length];
+        while(head!=null){
+            res[length-flag] = head.val;
+            flag ++;
+            head = head.next;
+        }
+
+        return res;
+
+    }
+
+    private int getSize(ListNode head){
+        int size=0;
+        while (head != null) {
+            head = head.next;
+            ++size;
+        }
+        return size;
+    }
+
 
     public ArrayList<Integer> printListFromTailToHead(ListNode listNode) {
 
@@ -40,11 +66,11 @@ public class JZ06_tail2head_print {
         return s;
     }
 
-        @Test
-        public void test(){
-            ListNode l = new ListNode(1);
-            l.next = new ListNode(2);
-            l.next.next = new ListNode(3);
-            System.out.println(printListFromTailToHead(null));
-        }
+    @Test
+    public void test() {
+        ListNode l = new ListNode(1);
+        l.next = new ListNode(2);
+        l.next.next = new ListNode(3);
+        System.out.println(printListFromTailToHead(null));
+    }
 }
