@@ -2,15 +2,18 @@ package com.leex.alg.JZ;
 
 import com.leex.alg.ListNode;
 import org.junit.Test;
+import sun.reflect.generics.scope.DummyScope;
 
 import java.util.ArrayList;
+import java.util.Objects;
+
 /**
  * @title: com.leex.agl.JZ.JZ22_daoshukjiedian
  * @Author LeeX
  * @Date: 2022/2/27 15:32
  * @Version 1.0
  */
-public class JZ22_daoshukjiedian {
+public class JZ22_GetKthFromEnd {
 
     /*
     暴力求解，先算长度
@@ -34,8 +37,23 @@ public class JZ22_daoshukjiedian {
     /*
     利用快慢指针
      */
-    public ListNode FindKthToTail2 (ListNode pHead, int k) {
-        return null;
+    public ListNode getKthFromEnd (ListNode head, int k) {
+        if (Objects.isNull(head)) {
+            return head;
+        }
+        int gap = k;
+        ListNode dummyfirst = head;
+        ListNode dummySecond = head;
+        while (Objects.nonNull(dummySecond)) {
+            if (gap >= 0) {
+                gap--;
+            }
+            if (gap < 0) {
+                dummyfirst = dummyfirst.next;
+            }
+            dummySecond = dummySecond.next;
+        }
+        return dummyfirst;
     }
 
     /*
@@ -53,7 +71,7 @@ public class JZ22_daoshukjiedian {
 
 
 
-        ListNode t = FindKthToTail(l,2);
+        ListNode t = getKthFromEnd(l,2);
 
         ArrayList x = new ArrayList();
 

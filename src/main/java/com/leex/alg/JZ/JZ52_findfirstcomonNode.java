@@ -6,6 +6,7 @@ import org.junit.Test;
 import java.util.ArrayList;
 import java.util.HashSet;
 
+import java.util.Objects;
 import java.util.Set;
 
 /**
@@ -21,14 +22,14 @@ public class JZ52_findfirstcomonNode {
      */
     public ListNode FindFirstCommonNode(ListNode pHead1, ListNode pHead2) {
         Set<ListNode> set = new HashSet<>();
-        while(pHead1!=null){
+        while (pHead1 != null) {
             set.add(pHead1);
             pHead1 = pHead1.next;
         }
         while (pHead2 != null) {
-            if(set.contains(pHead2))
+            if (set.contains(pHead2))
                 return pHead2;
-            pHead2=pHead2.next;
+            pHead2 = pHead2.next;
         }
         return null;
     }
@@ -36,8 +37,43 @@ public class JZ52_findfirstcomonNode {
     /*
     使用差值法
      */
-    public ListNode FindFirstCommonNode2(ListNode pHead1, ListNode pHead2) {
-        return null;
+    ListNode getIntersectionNode(ListNode headA, ListNode headB) {
+        if (Objects.isNull(headA) || Objects.isNull(headB)) {
+            return null;
+        }
+
+        ListNode dummyheadA = headA;
+        ListNode dummyheadB = headB;
+        int lengthA = 0;
+        int lengthB = 0;
+        int flag = 0;
+        while (headA != headB) {
+            headA = headA.next;
+            headB = headB.next;
+            flag++;
+            if (Objects.isNull(headA)) {
+                if (lengthA == 0) {
+                    headA = dummyheadB;
+
+                    lengthA = flag;
+                }
+            }
+            if (Objects.isNull(headB)) {
+                if (lengthB == 0) {
+                    headB = dummyheadA;
+                    lengthB = flag;
+                }
+
+            }
+            if (Objects.isNull(headA) || Objects.isNull(headB)) {
+                return null;
+            }
+            if (lengthA != 0 && lengthB != 0 && flag > lengthA + lengthB) {
+                return null;
+            }
+
+        }
+        return headA;
     }
 
     /*
@@ -48,10 +84,8 @@ public class JZ52_findfirstcomonNode {
     }
 
 
-
-
     @Test
-    public void test(){
+    public void test() {
         ListNode l = new ListNode(1);
         l.next = new ListNode(5);
         l.next.next = new ListNode(6);
@@ -67,15 +101,15 @@ public class JZ52_findfirstcomonNode {
         l.next.next.next = gongtongtail;
         l2.next.next = gongtongtail;
 
-        ListNode t = FindFirstCommonNode(l,l2);
+        ListNode t = FindFirstCommonNode(l, l2);
         ArrayList x = new ArrayList();
 
-        if(t!=null){
+        if (t != null) {
             x.add(t.val);
-            t=t.next;
-            while (t!=null){
+            t = t.next;
+            while (t != null) {
                 x.add(t.val);
-                t=t.next;
+                t = t.next;
             }
         }
         System.out.println(x);
